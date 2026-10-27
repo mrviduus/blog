@@ -1,6 +1,6 @@
 # SKIP LOCKED lab
 
-Code for the post [What SKIP LOCKED Solves, and What It Leaves to You](https://vasyl.blog/?p=668).
+Code for the post [What SKIP LOCKED Solves, and What It Leaves to You](https://vasyl.blog/2026/10/27/what-skip-locked-solves/).
 
 A tiny job-queue worker on Postgres, in two versions with the same SQL and the same behaviour:
 
