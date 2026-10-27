@@ -25,7 +25,7 @@ while (true)
     var (id, attempt) = job.Value;
     Log($"took job {id} (attempt {attempt})");
 
-    // 2. Work: pretend to pay the winner
+    // 2. Work: pretend to pay the invoice
     await Task.Delay(TimeSpan.FromSeconds(slowFirstJob ? 15 : 1));
     slowFirstJob = false;
 

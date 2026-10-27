@@ -34,7 +34,7 @@ CREATE TABLE jobs (
 );
 
 INSERT INTO jobs (id, payload)
-SELECT g, 'pay winner #' || g
+SELECT g, 'pay invoice #' || g
 FROM generate_series(777, 786) AS g;
 
 SELECT id, payload, status FROM jobs ORDER BY id LIMIT 3;
@@ -43,11 +43,11 @@ SELECT id, payload, status FROM jobs ORDER BY id LIMIT 3;
 Expected:
 
 ```
- id  |     payload     | status
------+-----------------+--------
- 777 | pay winner #777 | queued
- 778 | pay winner #778 | queued
- 779 | pay winner #779 | queued
+ id  |     payload      | status
+-----+------------------+--------
+ 777 | pay invoice #777 | queued
+ 778 | pay invoice #778 | queued
+ 779 | pay invoice #779 | queued
 (3 rows)
 ```
 
@@ -68,8 +68,8 @@ SELECT id, payload FROM jobs WHERE status = 'queued' ORDER BY id LIMIT 1 FOR UPD
 ```
 ```
  id  |     payload
------+-----------------
- 777 | pay winner #777
+-----+------------------
+ 777 | pay invoice #777
 (1 row)
 ```
 
@@ -89,8 +89,8 @@ COMMIT;
 **B** wakes up only now:
 ```
  id  |     payload
------+-----------------
- 778 | pay winner #778
+-----+------------------
+ 778 | pay invoice #778
 (1 row)
 ```
 **B:** `COMMIT;`
@@ -109,7 +109,7 @@ BEGIN;
 SELECT id, payload FROM jobs WHERE status = 'queued' ORDER BY id LIMIT 1 FOR UPDATE SKIP LOCKED;
 ```
 ```
- 777 | pay winner #777
+ 777 | pay invoice #777
 ```
 
 **B:**
@@ -119,7 +119,7 @@ SELECT id, payload FROM jobs WHERE status = 'queued' ORDER BY id LIMIT 1 FOR UPD
 ```
 Returns immediately:
 ```
- 778 | pay winner #778
+ 778 | pay invoice #778
 ```
 
 **A:** `COMMIT;`  **B:** `COMMIT;`

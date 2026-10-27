@@ -31,7 +31,7 @@ while (true) {
   const { id, attempt } = rows[0];
   log(`took job ${id} (attempt ${attempt})`);
 
-  // 2. Work: pretend to pay the winner
+  // 2. Work: pretend to pay the invoice
   await sleep(slowFirstJob ? 15 : 1);
   slowFirstJob = false;
 
