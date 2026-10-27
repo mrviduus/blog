@@ -20,7 +20,7 @@ What the worker does:
 
 ![Workers A and B side by side: A is slow, B takes 777 back as attempt 2, A prints LOST](demo/demo.gif)
 
-The GIF is a real run, recorded with [vhs](https://github.com/charmbracelet/vhs): `demo/record.sh`.
+The GIF is a real run at 2x speed, recorded with [vhs](https://github.com/charmbracelet/vhs): `demo/record.sh`.
 
 Start Postgres and create the table: [TUTORIAL.md, steps 0 and 1](TUTORIAL.md#0-start-postgres-any-terminal).
 
