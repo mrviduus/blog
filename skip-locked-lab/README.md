@@ -18,6 +18,10 @@ What the worker does:
 
 ## Try it yourself
 
+![Workers A and B side by side: A is slow, B takes 777 back as attempt 2, A prints LOST](demo/demo.gif)
+
+The GIF is a real run, recorded with [vhs](https://github.com/charmbracelet/vhs): `demo/record.sh`.
+
 Start Postgres and create the table: [TUTORIAL.md, steps 0 and 1](TUTORIAL.md#0-start-postgres-any-terminal).
 
 Run two workers in two terminals. A is slow on purpose: its first job takes 15 s, longer than the 10 s lease.
